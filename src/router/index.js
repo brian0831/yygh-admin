@@ -51,8 +51,54 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '尚医通后台系统', icon: 'dashboard' }
     }]
+  },
+
+  {
+    path: '/yygh/hospset',
+    component: Layout,
+    redirect: '/yygh/hospset/list',
+    name: 'hospSet',
+    meta: { title: '医院设置管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: 'hospSetList',
+        component: () => import('@/views/yygh/hospset/list'),
+        meta: { title: '医院设置列表', icon: 'table' }
+      },
+      {
+        path: 'create',
+        name: 'createHospSet',
+        component: () => import('@/views/yygh/hospset/form'),
+        meta: { title: '开通医院设置', icon: 'tree' }
+      },
+      {
+        path: 'edit/:id',
+        name: 'editHospSet',
+        component: () => import('@/views/yygh/hospset/form'),
+        meta: { title: '编辑医院设置', noCache: true },
+        hidden: true
+      }
+    ]
+  },
+
+  {
+    path: '/cmn',
+    component: Layout,
+    redirect: 'cmn/list',
+    name: '数据管理',
+    alwaysShow: true,
+    meta: { title: '数据管理', icon: 'example' },
+    children: [
+      {
+        path: 'list',
+        name: '数据字典',
+        component: () => import('@/views/yygh/dict/list'),
+        meta: { title: '数据字典', icon: 'table' }
+      }
+    ]
   },
 
   {
@@ -77,7 +123,7 @@ export const constantRoutes = [
     ]
   },
 
-  {
+  /* {
     path: '/form',
     component: Layout,
     children: [
@@ -158,7 +204,7 @@ export const constantRoutes = [
         meta: { title: 'External Link', icon: 'link' }
       }
     ]
-  },
+  }, */
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

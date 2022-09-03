@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+    <div class="dashboard-text">欢迎使用尚医通后台管理系统: {{ name }}</div>
   </div>
 </template>
 
