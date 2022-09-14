@@ -28,7 +28,8 @@
     >
       <el-table-column
         type="selection"
-        width="55">
+        width="55"
+      >
       </el-table-column>
       <el-table-column
         label="序号"
@@ -83,9 +84,13 @@
           </router-link>
           <el-button type="danger" icon="el-icon-delete" circle @click="removeDataById(scope.row.id)">
           </el-button>
-          <el-button type="primary" icon="el-icon-lock" v-if="scope.row.status == 1" @click="lockOrUnlock(scope.row.id, 0)" circle>
+          <el-button type="primary" icon="el-icon-lock" v-if="scope.row.status == 1"
+                     @click="lockOrUnlock(scope.row.id, 0)" circle
+          >
           </el-button>
-          <el-button type="primary" icon="el-icon-unlock" v-if="scope.row.status == 0" @click="lockOrUnlock(scope.row.id, 1)" circle>
+          <el-button type="primary" icon="el-icon-unlock" v-if="scope.row.status == 0"
+                     @click="lockOrUnlock(scope.row.id, 1)" circle
+          >
           </el-button>
         </template>
       </el-table-column>
@@ -182,7 +187,7 @@
 
       },
       handleSelectionChange(val) {
-        this.multipleSelection = val;
+        this.multipleSelection = val
         console.log(val)
       },
       removeRows() {

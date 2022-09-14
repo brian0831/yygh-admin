@@ -88,15 +88,76 @@ export const constantRoutes = [
     path: '/cmn',
     component: Layout,
     redirect: 'cmn/list',
-    name: '数据管理',
+    name: 'dict',
     alwaysShow: true,
     meta: { title: '数据管理', icon: 'example' },
     children: [
       {
-        path: 'list',
-        name: '数据字典',
+        path: 'dictList',
+        name: '',
         component: () => import('@/views/yygh/dict/list'),
         meta: { title: '数据字典', icon: 'table' }
+      }
+    ]
+  },
+
+  {
+    path: '/hospital',
+    component: Layout,
+    redirect: 'hospital/list',
+    name: 'hospital',
+    alwaysShow: true,
+    meta: { title: '医院管理', icon: 'example' },
+    children: [
+      {
+        path: 'list',
+        name: 'hospSetList',
+        component: () => import('@/views/yygh/hosp/list'),
+        meta: { title: '医院列表', icon: 'table' }
+      },
+      {
+        path: 'show/:id',
+        name: 'hospShow',
+        component: () => import('@/views/yygh/hosp/show'),
+        meta: { title: '查看(详情)', noCache: true },
+        hidden: true
+      },
+      {
+        path: 'schedule/:hoscode',
+        name: 'showSchedule',
+        component: () => import('@/views/yygh/hosp/schedule'),
+        meta: { title: '排班', noCache: true },
+        hidden: true
+      }
+    ]
+  },
+
+  {
+    path: '/user',
+    component: Layout,
+    redirect: '/user/userinfo/list',
+    name: 'userinfo',
+    meta: { title: '用户管理', icon: 'table' },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'userinfo/list',
+        name: '用户列表',
+        component: () => import('@/views/user/userinfo/list'),
+        meta: { title: '用户列表', icon: 'table' }
+      },
+      {
+        path: 'userinfo/authList',
+        name: '认证审批列表',
+        component: () => import('@/views/user/userinfo/authList'),
+        meta: { title: '认证审批列表', icon: 'table' }
+      },
+      {
+        path: 'userinfo/show/:id',
+        name: '用户查看',
+        component: () => import('@/views/user/userinfo/show'),
+        meta: { title: '用户查看' },
+        hidden: true
       }
     ]
   },
